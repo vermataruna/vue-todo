@@ -2,9 +2,13 @@
   <main>
     <h1>Create Todo</h1>
     <TodoCreator @create-todo="createTodo"/>
-    <ul class="todo-list">
+    <ul class="todo-list" v-if="todoList.length > 0">
       <TodoItem v-for="todo in todoList" :todo="todo"></TodoItem>
     </ul>
+    <p class="todos-msg" v-else>
+      <Icon icon="noto-v1:sad-but-relieved-face" color="#41b080" width="50" height="50" />
+      <span>You have no todo's to complete! Add one!</span>
+    </p>
   </main>
 </template>
 
@@ -13,6 +17,7 @@ import TodoCreator from '../components/TodoCreator.vue';
 import TodoItem from '../components/TodoItem.vue';
 import { ref } from 'vue';
 import { uid } from 'uid';
+import { Icon } from '@iconify/vue';
 
 const todoList = ref([]);
 
