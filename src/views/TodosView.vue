@@ -5,7 +5,7 @@
     <ul class="todo-list" v-if="todoList.length > 0">
       <TodoItem v-for="todo in todoList" :todo="todo"></TodoItem>
     </ul>
-    <p class="todos-msg" v-else>
+    <p class="todos-message" v-else>
       <Icon icon="noto-v1:sad-but-relieved-face" color="#41b080" width="50" height="50" />
       <span>You have no todo's to complete! Add one!</span>
     </p>
@@ -54,7 +54,7 @@ main {
     gap: 20px;
   }
 
-  .todos-msg {
+  .todos-message {
     display: flex;
     align-items: center;
     justify-content: center;
