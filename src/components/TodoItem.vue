@@ -1,9 +1,11 @@
 <template>
     <li>
-        <input type="checkbox" :checked="todo.isCompleted">
+        <input type="checkbox" :checked="todo.isCompleted" @input="$emit('toggle-complete', index)">
         <div class="todo">
             <input v-if="todo.isEditing" type="text" :value="todo.todo">
-            <span>{{ todo.todo }}</span>
+            <span :class="{'completed-todo' : todo.isCompleted}">
+                {{ todo.todo }}
+            </span>
         </div>
         <div class="todo-actions">
             <Icon v-if="todo.isEditing" 
@@ -29,8 +31,13 @@ const props = defineProps({
     todo: {
         type: Object,
         required: true
+    },
+    todo: {
+        type: Number,
+        required: true
     }
 });
+defineEmits(['toggle-complete']);
 
 </script>
 
@@ -65,6 +72,10 @@ li {
 
   .todo {
     flex: 1;
+    
+    .completed-todo {
+    text-decoration: line-through;
+    }
 
     input[type="text"] {
       width: 100%;
