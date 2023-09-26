@@ -3,7 +3,13 @@
     <h1>Create Todo</h1>
     <TodoCreator @create-todo="createTodo"/>
     <ul class="todo-list" v-if="todoList.length > 0">
-      <TodoItem v-for="(todo, index) in todoList" :todo="todo" :index="index" @toggle-complete="toggleTodoComplete"></TodoItem>
+      <TodoItem v-for="(todo, index) in todoList" 
+      :todo="todo" 
+      :index="index" 
+      @toggle-complete="toggleTodoComplete"
+      @edit-todo="toggleEditTodo"
+      @update-todo="updateTodo"
+      ></TodoItem>
     </ul>
     <p class="todos-message" v-else>
       <Icon icon="noto-v1:sad-but-relieved-face" color="#41b080" width="50" height="50" />
@@ -33,6 +39,14 @@ const createTodo = (todo) => {
 const toggleTodoComplete = (index) => {
   todoList.value[index].isCompleted = !todoList.value[index].isCompleted;
 };
+
+const toggleEditTodo = (index) => {
+  todoList.value[index].isEditing = !todoList.value[index].isEditing;
+}
+
+const updateTodo = (updatedValue,index) => {
+  todoList.value[index].todo = updatedValue;
+}
 
 </script>
 
