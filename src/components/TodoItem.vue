@@ -32,12 +32,12 @@ const props = defineProps({
         type: Object,
         required: true
     },
-    todo: {
+    index: {
         type: Number,
         required: true
     }
 });
-defineEmits(['toggle-complete']);
+defineEmits(["toggle-complete"]);
 
 </script>
 
