@@ -49,7 +49,6 @@ const updateTodo = (updatedValue,index) => {
 }
 
 </script>
-
 <style lang="scss" scoped>
 main {
   display: flex;
@@ -63,7 +62,6 @@ main {
     margin-bottom: 16px;
     text-align: center;
   }
-
   .todo-list {
     display: flex;
     flex-direction: column;
@@ -72,7 +70,7 @@ main {
     gap: 20px;
   }
 
-  .todos-message {
+.todos-message {
     display: flex;
     align-items: center;
     justify-content: center;
